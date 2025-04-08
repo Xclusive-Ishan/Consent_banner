@@ -1,2 +1,32 @@
-microsoft.com
-zoom.us
+1. msn.com  
+2. softonic.com  
+3. merriam-webster.com  
+4. britannica.com  
+5. slate.com  
+6. thesun.co.uk  
+7. medicalnewstoday.com  
+8. thetimes.co.uk  
+9. techtarget.com  
+10. vanityfair.com  
+11. healthline.com  
+12. economist.com  
+13. discogs.com  
+14. ilmessaggero.it  
+15. ticketmaster.co.uk  
+16. tomshw.it  
+17. ilgazzettino.it  
+18. cnn.com  
+19. reuters.com  
+20. tinyurl.com  
+21. bloomberg.com  
+22. fandom.com  
+23. w3schools.com  
+24. mashable.com  
+25. wikia.com  
+26. telegraph.co.uk  
+27. sindonews.com  
+28. wowhead.com  
+29. makeuseof.com  
+30. bustle.com  
+31. filehippo.com  
+32. cdiscount.com

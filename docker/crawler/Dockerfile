@@ -41,9 +41,14 @@ ENV FIREFOX_BINARY /opt/firefox-bin/firefox-bin
 WORKDIR /opt/crawler
 COPY requirements requirements
 RUN apt-get install libpq-dev -qq
+# Install system dependencies (including gfortran for scipy)
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gfortran \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
 RUN pip install -r requirements/shared_requirements.txt
-RUN pip install -r requirements/crawler_requirements.txt
-
+RUN pip install --no-deps -r requirements/crawler_requirements.txt
 RUN for model_name in da_core_news_sm de_core_news_sm el_core_news_sm en_core_web_sm es_core_news_sm fi_core_news_sm \
      fr_core_news_sm it_core_news_sm nl_core_news_sm pl_core_news_sm pt_core_news_sm sv_core_news_sm; do  \
     python -m spacy download $model_name; \
@@ -59,10 +64,10 @@ ENV PYTHONPATH /opt/crawler:/opt/crawler/openwpm
 RUN sed -i '/self.logger.info/{N;/get_configuration_string/{N;N;N;d;};}' openwpm/openwpm/task_manager.py
 
 # Downlaod models
-RUN apt-get install unzip
-RUN wget https://zenodo.org/records/7638513/files/models.zip &&\
+# Downlaod models
+RUN apt-get update && apt-get install -y unzip && \
+    wget https://zenodo.org/records/7638513/files/models.zip && \
     unzip models.zip && rm models.zip && rm -r __MACOSX
-
 # Copy project
 COPY . .
 
